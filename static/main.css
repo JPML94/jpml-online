@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,800');
+
+body {
+    font-family: Raleway, sans-serif;
+    font-size: 1.5em;
+    height: 100vh;
+    widows: 100vw;
+    overflow: auto;
+    box-sizing: border-box;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 2em;
+    background: beige;
+}
+
+.nav-btn {
+    width: 32.3333%;
+    color: black;
+    font-size: 1em;
+    margin-top: 0.4em;
+}
+
+.main {
+    padding-top: 2%;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    height: 15%;
+    padding-top: 3%;
+}
+
+.header h1 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.header p {
+    width: 100%;
+    height: 100%;
+    font-size: 1.25rem;
+    text-align: center;
+    padding-top: 12px;
+}
+
+.showroom {
+    padding-top: 2%;
+    min-height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.showroom button {
+    width: 100%;
+    height: 100%;
+}
+
+.showroom img {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* entire container, keeps perspective */
+
+.flip-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    width: 400px;
+    height: 600px;
+}
+
+/*  UPDATED! flip the pane when hovered */
+
+.flip-container:hover .back {
+    transform: rotateY(0deg);
+}
+
+.flip-container:hover .front {
+    transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+
+.flipper {
+    width: 100%;
+    height: 100%;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: absolute;
+}
+
+.right,
+.left {
+    align-content: center;
+}
+
+/*  UPDATED! front pane, placed above back */
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+    background-color: lightblue;
+    transform: rotateY(-180deg);
+}
+
+/* 
+	Some vertical flip updates 
+*/
+
+.vertical.flip-container {
+    position: relative;
+}
+
+.vertical .back {
+    transform: rotateX(180deg);
+}
+
+.vertical.flip-container:hover .back {
+    transform: rotateX(0deg);
+}
+
+.vertical.flip-container:hover .front {
+    transform: rotateX(180deg);
+}
+
+.hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+}
+
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger--3dx .hamburger-box {
+    perspective: 80px;
+}
+
+.hamburger--3dx .hamburger-inner {
+    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hamburger--3dx .hamburger-inner::before,
+.hamburger--3dx .hamburger-inner::after {
+    transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hamburger--3dx.is-active .hamburger-inner {
+    background-color: transparent;
+    transform: rotateY(180deg);
+}
+
+.hamburger--3dx.is-active .hamburger-inner::before {
+    transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+
+.hamburger--3dx.is-active .hamburger-inner::after {
+    transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+.landing-foot {
+    text-align: center;
+    padding-top: 2%;
+}
+
+.landing-foot svg {
+    stroke: black;
+    margin: .5em;
+}
+
+.about {
+    background: white;
+    text-align: center;
+    padding-top: 2%;
+    padding: 4em;
+}
+
+.social {
+    padding: 2em;
+    background: black;
+}
+
+.social button {
+    color: white;
+}
+
+.social svg {
+    fill: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.services {
+    display: flex;
+    padding: 3em;
+}
+
+.service {
+    padding: 2em;
+    text-align: center;
+}
+
+.service h2 {
+    padding: 1em;
+}
+
+.service button {
+    padding: 1em;
+}
+
+.projects {
+    display: flex;
+    padding: 2em;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.project {
+    border: solid 1px black;
+    width: 33.3333%;
+}
+
+.project p {
+    padding: 1em;
+    font-size: 0.85em;
+}
+
+@media(max-width: 600px) {
+    nav {
+        display: none;
+    }
+
+    .project {
+        width: 50%;
+        font-size: 0.85em;
+        margin-top: 2em;
+    }
+
+    .project p {
+        font-size: 0.75em;
+    }
+}
+
+@media(max-width: 450px) {
+    .project {
+        width: 100%;
+        font-size: 0.75em;
+    }
+
+    .project p {
+        font-size: 0.5em;
+    }
+}
+
+@media(min-width: 600px) {
+    .hamburger {
+        display: none;
+    }
+}
