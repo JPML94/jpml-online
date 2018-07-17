@@ -12,14 +12,31 @@
 
 <body>
     <div class="main">
-        <div class="hamburger hamburger--3dx">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a onclick="window.location.href='index.html'" href="#">
+                        <li>Home</li>
+                    </a>
+                    <a href="#about">
+                        <li>About</li>
+                    </a>
+                    <a onclick="window.location.href='resume.html'" href="#">
+                        <li>Resume</li>
+                    </a>
+                    <a onclick="window.location.href='contact.html'" href="#">
+                        <li>Contact</li>
+                    </a>
+                </ul>
             </div>
-        </div>
+        </nav>
         <div class="header">
             <h1>Juan Pablo Mora Lopez</h1>
-            <p>Hi! I'm a programmer and producer, check out some of my stuff by clicking on the cards below.</p>
+            <p>Hi! I'm a software developer and media producer, check out some of my projects below.</p>
         </div>
         <div class="showroom">
             <div class="flip-container left" ontouchstart="this.classList.toggle('hover');">
@@ -32,11 +49,23 @@
                     </div>
                     <div onclick="window.location.href='web-projects.html'" class="back">
                         <!-- back content -->
-                        Development Projects
+                        <div class="back-card">
+                            <div class="title-content">
+                                <h3>
+                                    Software Development
+                                </h3>
+                                <div class="intro">
+                                    <a href="#">Projects</a>
+                                </div>
+                            </div>
+                            <div class="gradient-overlay"></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <!-- back content -->
                     </div>
                 </div>
             </div>
-            <div class="flip-container righ" ontouchstart="this.classList.toggle('hover');">
+            <div class="flip-container right" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
                     <div class="front">
                         <!-- front content -->
@@ -46,7 +75,19 @@
                     </div>
                     <div onclick="window.location.href='video-projects.html'" class="back">
                         <!-- back content -->
-                        Production Projects Projects
+                        <div class="back-card">
+                            <div class="title-content">
+                                <h3>
+                                    Media Production
+                                </h3>
+                                <div class="intro">
+                                    <a href="#">Projects</a>
+                                </div>
+                            </div>
+                            <div class="gradient-overlay"></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <!-- back content -->
                     </div>
                 </div>
             </div>
@@ -64,10 +105,14 @@
             <div>
                 <h2>About Me</h2>
                 <br />
-                <p>I was born in Mexico City and moved to the US for college, then moved to San Francisco to pursue a technology
-                    career.</p>
+                <p>I was born in Mexico City and moved to the US for college, in 2015 I moved to San Francisco to pursue a career
+                    in technology and I've been working on a lot of different and exciting projects that involve audio recording
+                    and mixing, video production and post-production and for the past year I have been developing small applications
+                    for fun using technologies like Python (Flask, Django) and Javascript (Angular, Vue & React).
+                </p>
                 <br />
-                <p>I enjoy working on a variety of projects that involve programming, video and music.</p>
+                <p>I have a passion for learning and my main career goal is to solve problems that will have an impact in society
+                    with a combination of my media and technology skills.</p>
                 <br />
                 <p>Check out some of my social media below.</p>
             </div>
@@ -142,17 +187,6 @@
             </div>
         </section>
     </div>
-    <nav>
-        <button onclick="window.location.href='index.html'" class="nav-btn">
-            Home
-        </button>
-        <button onclick="window.location.href='contact.html'" class="nav-btn">
-            Contact
-        </button>
-        <button onclick="window.location.href='resume.html'" class="nav-btn">
-            Resume
-        </button>
-    </nav>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>

@@ -1,32 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,800');
-
 body {
+    overflow-x: hidden !important;
     font-family: Raleway, sans-serif;
     font-size: 1.5em;
     height: 100vh;
     widows: 100vw;
-    overflow: auto;
+    overflow-y: auto;
     box-sizing: border-box;
-    background: linear-gradient(130deg, #5e5e5e 0%, #ffffff 21%, #ffffff 79%, #5e5e5e 100%);
+    background: #a8a8a8;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8a8a8, #f2f2f2, #dbdbdb, #a8a8a8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8a8a8, #f2f2f2, #dbdbdb, #a8a8a8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-nav {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 2em;
-    background: black;
-}
-
-.nav-btn {
-    width: 32.3333%;
-    color: white;
-    font-size: 1em;
-    margin-top: 0.4em;
 }
 
 .main {
@@ -35,13 +24,123 @@ nav {
     width: 100%;
 }
 
+#menuToggle {
+    position: absolute;
+    left: 2em;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #232323;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+#menu a {
+    text-decoration: none;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+
+#menuToggle input:checked~ul {
+    transform: none;
+}
+
 .header {
     height: 15%;
-    padding-top: 2%;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
-  
 }
 
 .header h1 {
@@ -59,10 +158,12 @@ nav {
 }
 
 .showroom {
-    padding-top: 2%;
-    min-height: 70%;
+    height: 60%;
     display: flex;
+    margin: 1em;
+    padding: 3em;
     justify-content: space-evenly;
+    align-items: center;
     animation: moveInBottom 1s ease-out 0.3s;
     animation-fill-mode: backwards;
 }
@@ -75,7 +176,7 @@ nav {
 .showroom img {
     width: 100%;
     height: 100%;
-
+    box-shadow: 0px 10px 20px -0px rgba(0, 0, 0, 0.5);
 }
 
 /* entire container, keeps perspective */
@@ -83,8 +184,8 @@ nav {
 .flip-container {
     perspective: 1000px;
     transform-style: preserve-3d;
-    width: 400px;
-    height: 600px;
+    width: 13em;
+    height: 18em;
 }
 
 /*  UPDATED! flip the pane when hovered */
@@ -134,7 +235,6 @@ nav {
 /* back, initially hidden pane */
 
 .back {
-    background-color: lightblue;
     transform: rotateY(-180deg);
 }
 
@@ -158,91 +258,152 @@ nav {
     transform: rotateX(180deg);
 }
 
-.hamburger {
-    padding: 15px 15px;
-    display: inline-block;
+/* BACK OF CARD */
+
+.back-card {
     cursor: pointer;
-    transition-property: opacity, filter;
-    transition-duration: 0.15s;
-    transition-timing-function: linear;
-    font: inherit;
-    color: inherit;
-    text-transform: none;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    overflow: visible;
-}
-
-.hamburger:hover {
-    opacity: 0.7;
-}
-
-.hamburger-box {
-    width: 40px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-}
-
-.hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px;
-}
-
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-    width: 40px;
-    height: 4px;
-    background-color: #000;
-    border-radius: 4px;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
+    color: #fff;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: 0px 10px 20px -0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.4s;
+    background: #808080;
+    background-size: 100%;
 }
 
-.hamburger-inner::before,
-.hamburger-inner::after {
-    content: "";
+.back-card a {
+    color: #fff;
+    text-decoration: none;
+    transform: all 0.2s;
+}
+
+.back-card .color-overlay {
+    background: rgba(64, 84, 94, 0.5);
+    width: 550px;
+    height: 500px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.back-card .gradient-overlay {
+    background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+    width: 550px;
+    height: 500px;
+    position: absolute;
+    top: 350px;
+    left: 0;
+    z-index: 15;
+}
+
+.back-card:hover {
+    box-shadow: 0px 18px 20px -0px rgba(0, 10, 30, 0.75);
+}
+
+.back-card:hover .color-overlay {
+    background: rgba(64, 64, 70, 0.8);
+}
+
+.back-card:hover .title-content {
+    margin-top: 70px;
+}
+
+.title-content {
+    text-align: center;
+    margin: 170px 0 0 0;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.6s;
+}
+
+.back-card:hover h3:after {
+    animation: changeLetter 0.3s 1 linear;
+    width: 80%
+}
+
+.back-card h3 {
+    font-size: 1.9em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.back-card h3 a {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
+}
+
+.back-card h3 a:hover {
+    text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95);
+}
+
+h3:after {
+    content: " ";
     display: block;
+    width: 10%;
+    height: 2px;
+    margin: 20px auto;
+    border: 0;
+    background: #BDA26B;
+    transition: all 0.2s;
 }
 
-.hamburger-inner::before {
-    top: -10px;
+.intro {
+    width: 170px;
+    margin: 0 auto;
+    color: #ddd;
+    font-size: italic;
+    line-height: 18px;
 }
 
-.hamburger-inner::after {
-    bottom: -10px;
+.intro a {
+    color: #ddd;
 }
 
-.hamburger--3dx .hamburger-box {
-    perspective: 80px;
+.licon {
+    position: relative;
+    width: 23px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.hamburger--3dx .hamburger-inner {
-    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+.licon:before {
+    content: "";
+    background: url(https://nodws.github.io/NodPen/postItem/licons.svg?) -2px -6px no-repeat;
+    background-size: 250px;
+    width: 26px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: -3px;
+    left: 0;
 }
 
-.hamburger--3dx .hamburger-inner::before,
-.hamburger--3dx .hamburger-inner::after {
-    transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+.icon-white {
+    filter: brightness(10);
 }
 
-.hamburger--3dx.is-active .hamburger-inner {
-    background-color: transparent;
-    transform: rotateY(180deg);
+.icon-black {
+    filter: brightness(0);
+    opacity: 0.6;
 }
 
-.hamburger--3dx.is-active .hamburger-inner::before {
-    transform: translate3d(0, 10px, 0) rotate(45deg);
-}
-
-.hamburger--3dx.is-active .hamburger-inner::after {
-    transform: translate3d(0, -10px, 0) rotate(-45deg);
-}
+/* END BACK OF CARD */
 
 .landing-foot {
     text-align: center;
@@ -262,7 +423,7 @@ nav {
 .about {
     background: white;
     text-align: center;
-    padding-top: 2%;
+    margin-top: 3em;
     padding: 4em;
 }
 
@@ -320,18 +481,36 @@ nav {
 }
 
 @media(max-width: 600px) {
-    nav {
-        display: none;
+    .main {
+        padding: 0px;
     }
-
+    .hamburger {
+        padding-bottom: 0px;
+    }
+    .header {
+        padding-top: 0px;
+    }
+    .header p {
+        padding-top: 0px;
+    }
     .project {
         width: 50%;
         font-size: 0.85em;
         margin-top: 2em;
     }
-
     .project p {
         font-size: 0.75em;
+    }
+    .showroom {
+        flex-direction: column;
+        margin: 0px;
+    }
+    .flip-container {
+        width: 10em;
+        height: 8em;
+    }
+    .landing-foot {
+        padding: 0px;
     }
 }
 
@@ -340,15 +519,13 @@ nav {
         width: 100%;
         font-size: 0.75em;
     }
-
     .project p {
         font-size: 0.5em;
     }
 }
 
 @media(min-width: 600px) {
-    .hamburger {
-        display: none;
+    nav {
     }
 }
 
@@ -356,26 +533,23 @@ nav {
 
 @keyframes moveInBottom {
     0% {
-      opacity: 0;
-      transform: translateY(3rem);
+        opacity: 0;
+        transform: translateY(3rem);
     }
-  
     100% {
-      opacity: 1;
-      transform: translate(0);
+        opacity: 1;
+        transform: translate(0);
     }
-  }
+}
 
 @keyframes moveInLeft {
     0% {
         opacity: 0;
         transform: translateX(-10rem);
     }
-
     80% {
         transform: translateX(1rem);
     }
-
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -384,17 +558,23 @@ nav {
 
 @keyframes moveInRight {
     0% {
-      opacity: 0;
-      transform: translateX(10rem);
+        opacity: 0;
+        transform: translateX(10rem);
     }
-  
     80% {
-      transform: translateX(-1rem);
+        transform: translateX(-1rem);
     }
-  
     100% {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
-  
+}
+
+@keyframes changeLetter {
+    0% {
+        width: 10%;
+    }
+    100% {
+        width: 80%;
+    }
+}
