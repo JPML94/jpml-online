@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +12,29 @@
 
 <body>
     <div class="main">
-        <h1>This is my resume!</h1>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a onclick="window.location.href='index.html'" href="#">
+                        <li>Home</li>
+                    </a>
+                    <a onclick="window.location.href='index.html?#about'" href="#">
+                        <li>About</li>
+                    </a>
+                    <a onclick="window.location.href='resume.html'" href="#">
+                        <li>Resume</li>
+                    </a>
+                    <a onclick="window.location.href='contact.html'" href="#">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <nav>
-        <button onclick="window.location.href='index.html'" class="nav-btn">
-            Home
-        </button>
-        <button onclick="window.location.href='contact.html'" class="nav-btn">
-            Contact
-        </button>
-        <button onclick="window.location.href='resume.html'" class="nav-btn">
-            Resume
-        </button>
-    </nav>
 </body>
 
 </html>

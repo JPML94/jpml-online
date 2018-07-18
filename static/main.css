@@ -7,11 +7,11 @@ body {
     widows: 100vw;
     overflow-y: auto;
     box-sizing: border-box;
-    background: #a8a8a8;
+    background: #f0f2f0;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a8a8a8, #f2f2f2, #dbdbdb, #a8a8a8);
+    background: -webkit-linear-gradient(to right, #f0f2f0, #d5ddff);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a8a8a8, #f2f2f2, #dbdbdb, #a8a8a8);
+    background: linear-gradient(to right, #f0f2f0, #d5ddff);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -22,7 +22,14 @@ body {
     padding-top: 2%;
     height: 100%;
     width: 100%;
+    border-top: 2px solid #BDA26B;
 }
+
+.main h1 {
+    font-size: 1.5em;
+}
+
+/* START HAMBURGER MENU */
 
 #menuToggle {
     position: absolute;
@@ -126,6 +133,7 @@ body {
 
 #menu a {
     text-decoration: none;
+    color: black;
 }
 
 /*
@@ -136,8 +144,13 @@ body {
     transform: none;
 }
 
+/* END HAMBURGER MENU */
+
+/* START MAIN HEADER */
+
 .header {
     height: 15%;
+    font-weight: 500;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -156,6 +169,10 @@ body {
     text-align: center;
     padding-top: 12px;
 }
+
+/* END MAIN HEADER */
+
+/* START SHOWROOM */
 
 .showroom {
     height: 60%;
@@ -177,9 +194,12 @@ body {
     width: 100%;
     height: 100%;
     box-shadow: 0px 10px 20px -0px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
 }
 
-/* entire container, keeps perspective */
+/* END SHOWROOM */
+
+/* START FLIP EFFECT */
 
 .flip-container {
     perspective: 1000px;
@@ -187,8 +207,6 @@ body {
     width: 13em;
     height: 18em;
 }
-
-/*  UPDATED! flip the pane when hovered */
 
 .flip-container:hover .back {
     transform: rotateY(0deg);
@@ -198,8 +216,6 @@ body {
     transform: rotateY(180deg);
 }
 
-/* flip speed goes here */
-
 .flipper {
     width: 100%;
     height: 100%;
@@ -207,8 +223,6 @@ body {
     transform-style: preserve-3d;
     position: relative;
 }
-
-/* hide back of pane during swap */
 
 .front,
 .back {
@@ -225,22 +239,14 @@ body {
     align-content: center;
 }
 
-/*  UPDATED! front pane, placed above back */
-
 .front {
     z-index: 2;
     transform: rotateY(0deg);
 }
 
-/* back, initially hidden pane */
-
 .back {
     transform: rotateY(-180deg);
 }
-
-/* 
-	Some vertical flip updates 
-*/
 
 .vertical.flip-container {
     position: relative;
@@ -258,7 +264,9 @@ body {
     transform: rotateX(180deg);
 }
 
-/* BACK OF CARD */
+/* END FLIP EFFECT */
+
+/* START BACK OF CARD */
 
 .back-card {
     cursor: pointer;
@@ -334,7 +342,7 @@ body {
 }
 
 .back-card h3 {
-    font-size: 1.9em;
+    font-size: 1.52em;
     font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 0;
@@ -405,13 +413,16 @@ h3:after {
 
 /* END BACK OF CARD */
 
+/* START LEARN MORE */
+
 .landing-foot {
     text-align: center;
     padding-top: 1em;
 }
 
-.landing-foot h1 {
+.landing-foot h2 {
     animation: moveInRight 1s ease-in-out;
+    padding-bottom: 1em;
 }
 
 .landing-foot svg {
@@ -420,30 +431,28 @@ h3:after {
     animation: moveInBottom 1s ease-in-out;
 }
 
+/* END LEARN MORE */
+
+/* START ABOUT SECTION */
+
 .about {
-    background: white;
     text-align: center;
     margin-top: 3em;
     padding: 4em;
+    border-top: 1em solid #BDA26B;
+    border-bottom: 1em solid #BDA26B;
 }
 
-.social {
-    padding: 2em;
-    background: black;
+.about p {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 35px;
+    padding-bottom: 50px;
 }
 
-.social button {
-    color: white;
-}
+/* END ABOUT SECTION */
 
-.social svg {
-    fill: white;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: space-evenly;
-}
+/* START SERVICES SECTION */
 
 .services {
     display: flex;
@@ -463,6 +472,32 @@ h3:after {
     padding: 1em;
 }
 
+/* END SERVICES SECTION */
+
+/* START SOCIAL FOOTER */
+
+.social {
+    padding: 2em;
+    background: black;
+}
+
+.social button {
+    color: white;
+}
+
+.social svg {
+    fill: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* END SOCIAL FOOTER */
+
+/* START PROJECTS PAGE */
+
 .projects {
     display: flex;
     padding: 2em;
@@ -471,13 +506,200 @@ h3:after {
 }
 
 .project {
-    border: solid 1px black;
-    width: 33.3333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    height: auto;
 }
 
 .project p {
     padding: 1em;
     font-size: 0.85em;
+}
+
+.embed {
+    width: 95%;
+    height: 33%;
+}
+
+.embed iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* END PROJECTS PAGE */
+
+/* START CONTACT PAGE */
+
+.contact-title {
+    font-size: 1.15em !important;
+    padding: 2em 5em 1em 5em;
+    text-align: center;
+}
+
+#form-main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2em;
+}
+
+#form-div {
+    background-color: rgba(72, 72, 72, 0.4);
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    width: 50%;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+    color: #3c3c3c;
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 0.75em;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.feedback-input:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #BDA26B;
+    color: black;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
+.focused {
+    border: rgb(194, 170, 123) solid 3px;
+}
+
+/* Icons ---------------------------------- */
+
+#name {
+    background-image: url(../assets/name.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#name:focus {
+    background-image: url(../assets/name.svg);
+    background-size: 30px 30px;
+    background-position: 8px 5px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#email {
+    background-image: url(../assets/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#email:focus {
+    background-image: url(../assets/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#comment {
+    background-image: url(../assets/comment.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 250px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus {
+    background-color: white;
+}
+
+#button-blue {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    float: left;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    cursor: pointer;
+    background-color: #BDA26B;
+    color: white;
+    font-size: 24px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+#button-blue:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #BDA26B;
+}
+
+.submit:hover {
+    color: #BDA26B;
+}
+
+.ease {
+    width: 0px;
+    height: 74px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.submit:hover .ease {
+    width: 100%;
+    background-color: white;
+}
+
+/* END CONTACT FORM */
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 900px) {
+    .contact-title {
+        padding: 2em 5em 1em 5em;
+    }
+    #about {
+        padding-top: 4em;
+        padding-right: 0;
+        padding-bottom: 4em;
+        padding-left: 0;
+    }
+    #about p {
+        font-size: .75em;
+    }
+    .back-card h3 {
+        font-size: 1em;
+    }    
 }
 
 @media(max-width: 600px) {
@@ -487,11 +709,11 @@ h3:after {
     .hamburger {
         padding-bottom: 0px;
     }
-    .header {
-        padding-top: 0px;
-    }
     .header p {
         padding-top: 0px;
+    }
+    .back-card h3 {
+        font-size: 0.75em;
     }
     .project {
         width: 50%;
@@ -503,14 +725,41 @@ h3:after {
     }
     .showroom {
         flex-direction: column;
-        margin: 0px;
+        margin: 2em;
+        margin-bottom: 0px;
     }
     .flip-container {
         width: 10em;
         height: 8em;
     }
+    .back-card {
+        
+    }
+    .title-content{
+        margin: 25px 0 0 0;
+    }
     .landing-foot {
         padding: 0px;
+    }
+    .landing-foot h2 {
+        padding-bottom: 0px;
+    }
+    .contact-title {
+        padding: 4em 2em 0.5em 2em;
+        font-size: 0.85em !important;
+    }
+    #form-div {
+        width: 100%;
+    }
+    #menuToggle {
+        display: relative;
+        top: 1em;
+        left: 1em;
+    }
+    .header {
+        padding-top: 2em;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
     }
 }
 
@@ -525,8 +774,7 @@ h3:after {
 }
 
 @media(min-width: 600px) {
-    nav {
-    }
+    nav {}
 }
 
 /* ANIMATIONS */
