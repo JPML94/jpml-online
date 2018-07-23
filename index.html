@@ -39,7 +39,7 @@
             <p>Hi! I'm a software developer and media producer, check out some of my projects by clicking the cards below.</p>
         </div>
         <div class="showroom">
-            <div class="flip-container left" ontouchstart="this.classList.toggle('hover');">
+            <div id="card" class="flip-container left" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
                     <div class="front">
                         <!-- front content -->
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flip-container right" ontouchstart="this.classList.toggle('hover');">
+            <div id="card" class="flip-container right" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
                     <div class="front">
                         <!-- front content -->
@@ -117,32 +117,35 @@
                     My passion for learning to work in different areas of technology has increased my adaptability and problem solving skills.
                     <br>
                     <br>
-                    I want to use the combinations of skills that I've acquired in technology and media to write software that empowers people to do what they're passionate about and help them achieve success. I'm very intersted in software that enables society to do things they like, the way instagram is making everyone a photographer or youtube gives people the power to create content that they want to share with the world. 
+                    I'm very intersted in software that enables people to do more of the things they like and empowers them to have a better life. Some examples that come to mind are Pro Tools for music recording and Instagram for sharing photography.
                 </p>
             </div>
         </section>
         <section class="services">
             <div class="service">
+                <img src="./assets/programming-code-svgrepo-com.svg" alt="Programming">
                 <h2>Web Development</h2>
                 <p>I offer front and backend development for businesses looking to up their game in the internet. I've worked
                     with Shopify, WordPress, Hubspot and javascript frameworks like Angular, VueJS and React</p>
-                <button class="service-contact">
+                <button onclick="window.location.href='contact.html'" class="service-contact">
                     Contact me to talk about your web project!
                 </button>
             </div>
             <div class="service">
+                <img src="./assets/video-player-svgrepo-com.svg" alt="Video">
                 <h2>Video Production</h2>
                 <p>I've done from launch videos to testimonials, with small businesses, startups and non-profits. I can produce
                     and edit video content for advertisement, community building or social presence.</p>
-                <button class="service-contact">
+                <button onclick="window.location.href='contact.html'" class="service-contact">
                     Contact me to talk about your video project!
                 </button>
             </div>
             <div class="service">
+                <img src="./assets/cd-recording-svgrepo-com.svg" alt="Music">
                 <h2>Music Recording & Mixing</h2>
                 <p>I started playing music when I was 12 years old. I've worked in live music, recording studios and assisted
                     Mixing and Mastering engineers in sessions.</p>
-                <button class="service-contact">
+                <button onclick="window.location.href='contact.html'" id="" class="service-contact">
                     Contact me to talk about your music project!
                 </button>
             </div>
