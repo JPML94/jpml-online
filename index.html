@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Portfolio</title>
+    <title>jpml.online</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <style>
+        html {
+            margin: 0;
+            height: 100%;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #333;
             color: #333;
             text-align: center;
         }
         #root {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -66,21 +67,62 @@
                 </nav>
             );
         }
-        
-        function Footer() {
+
+        function Title() {
             return (
-                <footer>
-                    <p><span className=""></span>contact@jpml.online</p>
-                </footer>
+                <div className="title">
+                    <h1>What can you find here?</h1>
+                    <p>Hola! This space is dedicated to my experiences as a generalist in software. You will find a summary of my career below, links to my socials and articles I like to write.</p>
+                </div>
             );
+        }
+
+        function Socials() {
+            return (
+                <div className="socials">
+                    <h3>Socials</h3>    
+                </div>
+            )
+        }
+
+        function SoftwareCareer() {
+            return (
+                <div className="software-career">
+                    <div className="card"><span className="icon icon-code"></span> Software Development Projects</div>
+                </div>
+            )
+        }
+
+        function MediaCareer() {
+            return (
+                <div className="media-career">
+                    <div className="card"><span className="icon icon-video"></span>Media Production Projects</div>    
+                </div>
+            )
         }
         
         function Resume() {
             return (
                 <div className="card">
                     <h2><span className="icon icon-user"></span> Resume</h2>
-                    <p>Experienced engineer in modern software, system operations and production.</p>
+                    <p>Experienced engineer in modern software, system operations and media production.</p>
                 </div>
+            );
+        }
+
+        function Blog() {
+            return (
+                <div className="blog">
+                    <h2>Blog</h2>
+                </div>
+            );
+        }
+
+        function Footer() {
+            return (
+                <footer>
+                    <a href="mailto:contact@jpml.online">contact@jpml.online</a>
+                </footer>
             );
         }
         
@@ -88,12 +130,12 @@
             return (
                 <div>
                     <Navbar />
-                    <h1><span className="icon icon-user"></span>JP Mora</h1>
-                    <p>Welcome to <a href="https://www.jpml.online">jpml.online</a></p>
-                    <p>This space is dedicated to my experience as a generalist in software.</p>
-                    <div className="card"><span className="icon icon-code"></span> Software Development Projects</div>
-                    <div className="card"><span className="icon icon-video"></span> Media Production Projects</div>
+                    <Title />
+                    <Socials />
+                    <SoftwareCareer /> 
+                    <MediaCareer />
                     <Resume />
+                    <Blog />
                     <Footer />
                 </div>
             );
