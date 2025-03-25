@@ -13,10 +13,10 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="text-center z-10"
       >
-        <h1 className="text-5xl font-bold mb-4 text-primary">John Doe</h1>
+        <h1 className="text-5xl font-bold mb-4 text-primary">Juan Pablo Mora</h1>
         <h2 className="text-2xl font-medium text-foreground mb-4">Technical Support Engineer</h2>
         <p className="mt-4 text-xl text-foreground max-w-2xl mx-auto">
-          Specializing in AI, ERP, and Cloud Technologies
+          Specializing in Enterprise Software, Payment Processing and Cloud Technologies.
         </p>
       </motion.div>
 
