@@ -1,0 +1,70 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .path {
+      fill: none;
+      stroke: #3B82F6;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    #j-stroke {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: draw 2s ease forwards infinite;
+      animation-delay: 0s;
+    }
+    
+    #j-dot {
+      stroke-dasharray: 20;
+      stroke-dashoffset: 20;
+      animation: draw 0.5s ease forwards infinite;
+      animation-delay: 1.8s;
+    }
+    
+    #p-stroke {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: draw 2s ease forwards infinite;
+      animation-delay: 2.2s;
+    }
+    
+    @keyframes draw {
+      0% {
+        stroke-dashoffset: var(--stroke-dashoffset, 200);
+      }
+      80% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    svg {
+      animation: reset 6s linear infinite;
+    }
+    
+    @keyframes reset {
+      0%, 95% {
+        opacity: 1;
+      }
+      96%, 100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  
+  <!-- J letter -->
+  <path id="j-stroke" class="path" style="--stroke-dashoffset: 200;" 
+        d="M35,35 C35,35 35,65 35,75 C35,82 30,85 25,82" />
+  
+  <!-- J dot -->
+  <path id="j-dot" class="path" style="--stroke-dashoffset: 20;"
+        d="M35,25 C35.5,25.5 35.5,26 35,26.5 C34.5,27 34,26.5 34,26 C34,25.5 34.5,25 35,25" />
+  
+  <!-- P letter -->
+  <path id="p-stroke" class="path" style="--stroke-dashoffset: 300;"
+        d="M60,35 L60,85 M60,35 C60,35 80,35 80,45 C80,55 70,60 60,60" />
+</svg>
+

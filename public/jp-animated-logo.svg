@@ -1,0 +1,52 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .jp-path {
+      fill: none;
+      stroke: #3B82F6;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+    }
+    
+    #j-path {
+      animation: drawJ 4s ease-in-out infinite;
+    }
+    
+    #p-path {
+      animation: drawP 4s ease-in-out infinite;
+    }
+    
+    #j-dot {
+      opacity: 0;
+      animation: fadeInOut 4s ease-in-out infinite;
+    }
+    
+    @keyframes drawJ {
+      0%, 100% { stroke-dashoffset: 300; }
+      20%, 90% { stroke-dashoffset: 0; }
+    }
+    
+    @keyframes drawP {
+      0%, 15% { stroke-dashoffset: 300; }
+      35%, 90% { stroke-dashoffset: 0; }
+    }
+    
+    @keyframes fadeInOut {
+      0%, 30% { opacity: 0; }
+      40%, 90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+  
+  <!-- J letter -->
+  <path id="j-path" class="jp-path" d="M40,40 C40,40 40,70 40,75 C40,85 30,85 25,80" />
+  
+  <!-- J dot -->
+  <circle id="j-dot" cx="40" cy="30" r="3" fill="#3B82F6" />
+  
+  <!-- P letter -->
+  <path id="p-path" class="jp-path" d="M60,40 L60,85 M60,40 C60,40 85,40 85,55 C85,70 60,70 60,70" />
+</svg>
+
