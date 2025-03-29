@@ -5,21 +5,33 @@ import { motion } from "framer-motion"
 const experiences = [
   {
     title: "Senior Technical Support Engineer",
-    company: "Enterprise Solutions Inc.",
-    period: "2019 - Present",
-    description: "Providing expert support for ERP software and cloud-based solutions.",
+    company: "Adyen",
+    period: "2023 - Present",
+    description: "Card processing optimization and omni-channel checkout flows engineer.",
   },
   {
-    title: "Database Administrator",
-    company: "Data Systems LLC",
-    period: "2016 - 2019",
-    description: "Managed and optimized large-scale databases for enterprise clients.",
+    title: "Technical Support Engineer",
+    company: "Adyen",
+    period: "2021 - 2023",
+    description: "Acquiring support and tokenization specialist.",
   },
   {
-    title: "Junior Support Specialist",
-    company: "Tech Support Co.",
-    period: "2014 - 2016",
-    description: "Assisted customers with technical issues and software troubleshooting.",
+    title: "Technical Support Specialist",
+    company: "Odoo",
+    period: "2018 - 2021",
+    description: "Accounting, inventory and e-commerce specialist.",
+  },
+  {
+    title: "Audio-Visal Engineer",
+    company: "Tradecraft",
+    period: "2016 - 2018",
+    description: "Media producer and engineer for startup incubator.",
+  },
+  {
+    title: "Audio Engineer Assistant",
+    company: "Fantasy Studios",
+    period: "2015 - 2016",
+    description: "Recording setup and troubleshooting for major label music sessions.",
   },
 ]
 

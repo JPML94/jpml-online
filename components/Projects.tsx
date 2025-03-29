@@ -4,18 +4,18 @@ import { motion } from "framer-motion"
 
 const projects = [
   {
-    title: "AI-Powered Customer Support Bot",
-    description: "Developed a machine learning model to automate customer inquiries, reducing response time by 50%.",
+    title: "First Project",
+    description: "First Description",
   },
   {
-    title: "Cloud Migration Strategy",
+    title: "Second Project",
     description:
-      "Led the migration of on-premise ERP systems to cloud infrastructure, improving scalability and reducing costs.",
+      "First desc.",
   },
   {
-    title: "Database Performance Optimization",
+    title: "Third Project",
     description:
-      "Implemented advanced indexing and query optimization techniques, resulting in a 30% increase in database performance.",
+      "Third Desc.",
   },
 ]
 
